@@ -34,4 +34,6 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 143d02a2a39404d65a007a7e31e02e39, type: 3}
   FirstSynergyIcon: {fileID: 21300000, guid: 12c36a3a039fe4503bfa34765ff45862, type: 3}
   SecondSynergyIcon: {fileID: 21300000, guid: 5f3f415a6288e457f9aed11404df7c93, type: 3}
+  SkillEffect: {fileID: 4403007739783461444, guid: f242c3bc14a504846b0199e9a67d9894, type: 3}
   characteristic: 0400000000000000
+  heroType: 1

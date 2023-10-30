@@ -1415,7 +1415,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3515,6 +3515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811782597}
   - component: {fileID: 1811782598}
+  - component: {fileID: 1811782599}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -3549,6 +3550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d94f3134205bc489281d0a4b26077b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPoolingManager: {fileID: 1811782599}
+  TRAN_TextSpawn: {fileID: 887808357}
   cameraShaker: {fileID: 441051968}
   TXT_Timer: {fileID: 1856189556}
   SLID_FrednlyBar: {fileID: 1435139824}
@@ -3583,10 +3586,25 @@ MonoBehaviour:
   GO_BattleCharater: {fileID: 8687510009599520175, guid: 655e9a16432d8f543b0dcaaad7373641, type: 3}
   IMG_ResultWin: {fileID: 1440554706}
   IMG_ResultLose: {fileID: 1799845810}
+  IMG_DamageText: {fileID: 0}
   _frendlyTeamHealth: 0
   _enemyTeamHealth: 0
   _curfrendlyTeamHealth: 0
   _curenemyTeamHealth: 0
+--- !u!114 &1811782599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811782596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25e9e32af4d987439e5d4088aaf41f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GO_Prefab:
+  - {fileID: 7022135982688635401, guid: 8f14f7bf6be918f40a6eedfbaffe98d7, type: 3}
 --- !u!1 &1822440563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4583,5 +4601,5 @@ SceneRoots:
   - {fileID: 226021479}
   - {fileID: 1690835735}
   - {fileID: 594119530}
-  - {fileID: 887808357}
   - {fileID: 1811782597}
+  - {fileID: 887808357}

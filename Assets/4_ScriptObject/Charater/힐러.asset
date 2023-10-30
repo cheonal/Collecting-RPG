@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ac7a7a9de3a134885905dc3d299fdb, type: 3}
+  m_Name: "\uD790\uB7EC"
+  m_EditorClassIdentifier: 
+  id: 3
+  Name: "\uD790\uB7EC"
+  SkillName: "\uC2E0\uC131\uD55C \uCD95\uBCF5"
+  SkillText: "\uB3CC\uC9C4\uD558\uC5EC, \uC801\uB4E4\uC5D0\uAC8C \uACF5\uACA9<color=#FF0000>400%</color>\uC758
+    \uB370\uBA54\uC9C0\uB97C \uC900\uB2E4."
+  Level: 1
+  Range: 70
+  MoveSpeed: 30
+  AttackSpeed: 1
+  AttaackDealy: 1
+  MaxHelath: 0
+  Health: 6000
+  Damage: 100
+  Armor: 0
+  SkillCollDown: 6.5
+  DefaultSkillCollDown: 0
+  SkillCollDownSpeed: 1
+  SkillDamage: 1000
+  Icon: {fileID: 21300000, guid: 4a4a4a79eee3d4485897cae0a097bf82, type: 3}
+  FirstSynergyIcon: {fileID: 21300000, guid: 10817211c196947fabbe82ffcfdb8738, type: 3}
+  SecondSynergyIcon: {fileID: 21300000, guid: 6e6fe5ff96c174b3c9b6627f1db23232, type: 3}
+  SkillEffect: {fileID: 4403007739783461444, guid: 97a6f76515fda7b4f8be1e036c2bca26, type: 3}
+  characteristic: 0200000001000000
+  heroType: 0
