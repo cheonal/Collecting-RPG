@@ -22,11 +22,16 @@ public class PopupManager : MonoBehaviour
             _curSpawnResult.Add(Instantiate(stageClearResult[curstage-1].Result[i], TRAN_SpawnArea));
         }
 
+        BTN_Start.onClick.RemoveAllListeners();
         BTN_Start.onClick.AddListener(() => settingTeamManager.GetCharater());
     }
     private void OnDisable()
     {
-        foreach(GameObject result in _curSpawnResult)
+        ClearList();
+    }
+    public void ClearList()
+    {
+        foreach (GameObject result in _curSpawnResult)
         {
             Destroy(result);
         }

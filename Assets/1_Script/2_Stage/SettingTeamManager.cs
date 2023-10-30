@@ -29,6 +29,8 @@ public class SettingTeamManager : MonoBehaviour
     /// <summary> 현재 보유중인 캐릭터 선택할 수 있는 아이콘으로 생성 </summary>
     public void GetCharater()
     {
+        gameObject.SetActive(true);
+
         CharaterData[] playerData = PlayerData.Instance.PlayerCharater;
 
         for (int i = 0; i < playerData.Length; i++)

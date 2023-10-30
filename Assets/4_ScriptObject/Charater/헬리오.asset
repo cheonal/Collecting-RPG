@@ -25,10 +25,9 @@ MonoBehaviour:
   AttaackDealy: 1
   MaxHelath: 0
   Health: 6200
-  Damage: 500
+  Damage: 900
   Armor: 0
-  SkillCollDown: 5
-  DefaultSkillCollDown: 0
+  SkillCollDown: 5.2000003
   SkillCollDownSpeed: 1
   SkillDamage: 1000
   Icon: {fileID: 21300000, guid: 6bc1b8ad7a39f45d6a92ed46a98f4b5d, type: 3}
@@ -37,3 +36,5 @@ MonoBehaviour:
   SkillEffect: {fileID: 4403007739783461444, guid: 4c3294ecb3a466546946a0354923581e, type: 3}
   characteristic: 0300000000000000
   heroType: 1
+  SaveDamage: 600
+  SaveSkillCoolDown: 17

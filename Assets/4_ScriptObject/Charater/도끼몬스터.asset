@@ -28,7 +28,6 @@ MonoBehaviour:
   Damage: 50
   Armor: 0
   SkillCollDown: 10
-  DefaultSkillCollDown: 0
   SkillCollDownSpeed: 1
   SkillDamage: 400
   Icon: {fileID: 21300000, guid: 143d02a2a39404d65a007a7e31e02e39, type: 3}
@@ -37,3 +36,5 @@ MonoBehaviour:
   SkillEffect: {fileID: 4403007739783461444, guid: f242c3bc14a504846b0199e9a67d9894, type: 3}
   characteristic: 0400000000000000
   heroType: 1
+  SaveDamage: 50
+  SaveSkillCoolDown: 10

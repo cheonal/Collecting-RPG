@@ -121,7 +121,7 @@ public class BattleManager : MonoSingleton<BattleManager>
         if (result == "Win")
         {
             IMG_ResultWin.SetActive(true);
-            if (TeamManager.Instance.CurStage <= PlayerPrefs.GetInt("curstage"))
+            if (TeamManager.Instance.CurStage < PlayerPrefs.GetInt("curstage"))
                 yield break;
 
             PlayerPrefs.SetInt("curstage", TeamManager.Instance.CurStage + 1);
@@ -185,6 +185,7 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// <summary> 전투 완료 후 돌아가기 버튼 클릭시 </summary>
     public void BattleOut()
     {
+        PlayerData.Instance.ReturnCharaterState();
         SceneManager.LoadScene("StageScene");
     }
 

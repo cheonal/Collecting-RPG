@@ -8,15 +8,18 @@ using UnityEngine.UI;
 
 public class TeamManager : DontDestroyMonoSingleton<TeamManager>
 {
-    public List<int> curSynergyValue;
-    [SerializeField] private Transform TRAN_SpawnCharterIcon;
-    [SerializeField] private Transform TRAN_SpawnSynergyIcon;
-    [SerializeField] private Button BTN_Charater;
+    [HideInInspector]
+    public int CurStage;
+    [HideInInspector]
     public List<CharaterData> CurTeam;
+    [HideInInspector]
     public List<CharaterData> EnemyTeam;
+
+    [SerializeField] private Button BTN_Charater;
+
     private StageManager _stageManager;
     private SettingTeamManager _settingTeamManager;
-    public int CurStage;
+    private List<int> curSynergyValue;
     public bool GetStageManager(StageManager stageManager)
     {
         _stageManager = stageManager;
@@ -27,6 +30,14 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
         _settingTeamManager = settingTeamManager;
         return false;
     }
+
+    public void GameStart()
+    {
+        SetCharater();
+        CheckSynergy();
+        SceneManager.LoadScene("BattleScene");
+    }
+    /// <summary> 캐릭터 편성창에서 선택한 캐릭터들, 현재 스테이지 적군 몬스터 정보 저장 </summary>
     public void SetCharater()
     {
         CurTeam = new List<CharaterData>();
@@ -43,11 +54,8 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
             EnemyTeam.Add(_stageManager.GetStageEnemyData()[selectStage - 1].Enemy[i]);
         }
     }
-    public void GameStart()
-    {
-        SetCharater();
-        SceneManager.LoadScene("BattleScene");
-    }
+
+    /// <summary> 게임 시작전 시너지 확인 </summary>
     public void CheckSynergy()
     {
         curSynergyValue = new List<int>();
@@ -62,8 +70,10 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 curSynergyValue[(int)charater.characteristic[i]]++;
             }
         }
-     //   ActiveSynergy();
+        ActiveSynergy();
     }
+
+    /// <summary> 배치한 캐릭터 시너지에 따라 능력치 상승 </summary>
     private bool ActiveSynergy()
     {
         #region  Warrior

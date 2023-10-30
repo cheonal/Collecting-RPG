@@ -19,7 +19,6 @@ public class CharaterData : ScriptableObject
     public float Damage;
     public float Armor;
     public float SkillCollDown;
-    public float DefaultSkillCollDown;
     public float SkillCollDownSpeed;
     public int SkillDamage;
     public Sprite Icon;
@@ -29,18 +28,19 @@ public class CharaterData : ScriptableObject
     public List<Synergy> characteristic = new List<Synergy>();
     public HeroType heroType;
     private float _damage;
-    private float _defalutSkillCollDown;
-
+    private float _skillCollDown;
+    public float SaveDamage;
+    public float SaveSkillCoolDown;
     public bool SaveDefaultState()
     {
-        _damage = Damage;
-        _defalutSkillCollDown = DefaultSkillCollDown;
+        _damage = SaveDamage;
+        _skillCollDown = SaveSkillCoolDown;
         return false;
     }
     public bool ReturnState()
     {
         Damage = _damage;
-        DefaultSkillCollDown = _defalutSkillCollDown;
+        SkillCollDown = _skillCollDown;
         return false;
     }
 }
