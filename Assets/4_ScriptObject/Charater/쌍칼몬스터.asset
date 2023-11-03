@@ -20,9 +20,9 @@ MonoBehaviour:
     \uC900\uB2E4"
   Level: 1
   Range: 10
-  MoveSpeed: 20
+  MoveSpeed: 40
   AttackSpeed: 1
-  AttaackDealy: 0.5
+  AttaackDealy: 0.6
   MaxHelath: 0
   Health: 6200
   Damage: 30

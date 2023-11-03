@@ -22,7 +22,7 @@ MonoBehaviour:
   Range: 70
   MoveSpeed: 15
   AttackSpeed: 1
-  AttaackDealy: 1
+  AttaackDealy: 1.2
   MaxHelath: 0
   Health: 6200
   Damage: 300

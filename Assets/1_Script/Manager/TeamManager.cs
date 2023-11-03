@@ -220,7 +220,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 {
                     if (charater.characteristic.Contains(Synergy.Warrior))
                     {
-                        charater.SkillCollDown *= 0.3f;
+                        charater.SkillCollDown -= 1f;
                     }
                 }
                 break;
@@ -229,7 +229,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 {
                     if (charater.characteristic.Contains(Synergy.Warrior))
                     {
-                        charater.SkillCollDown *= 0.4f;
+                        charater.SkillCollDown -= 2f;
                     }
                 }
                 break;
@@ -238,7 +238,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 {
                     if (charater.characteristic.Contains(Synergy.Warrior))
                     {
-                        charater.SkillCollDown *= 0.5f;
+                        charater.SkillCollDown -= 3f;
                     }
                 }
                 break;
@@ -247,7 +247,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 {
                     if (charater.characteristic.Contains(Synergy.Warrior))
                     {
-                        charater.SkillCollDown *= 0.6f;
+                        charater.SkillCollDown -= 4f;
                     }
                 }
                 break;
@@ -256,7 +256,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 {
                     if (charater.characteristic.Contains(Synergy.Warrior))
                     {
-                        charater.SkillCollDown *= 0.8f;
+                        charater.SkillCollDown -= 5f;
                     }
                 }
                 break;
@@ -265,7 +265,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
                 {
                     if (charater.characteristic.Contains(Synergy.Warrior))
                     {
-                        charater.SkillCollDown *= 0.9f;
+                        charater.SkillCollDown -= 6f;
                     }
                 }
                 break;

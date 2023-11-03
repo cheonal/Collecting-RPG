@@ -232,10 +232,12 @@ public class BattleCharater : MonoBehaviour
         DamageText.transform.position = transform.position + Vector3.up * 8f;
 
         TextMeshProUGUI damageText = DamageText.GetComponent<TextMeshProUGUI>();
-        damageText.text = value.ToString();
+
 
         // 방어력만큼 데미지 값 감소
         float guardedDamage = Mathf.Max(0, value - _armor);
+
+        damageText.text = Mathf.RoundToInt(guardedDamage).ToString();
         _health -= guardedDamage;
         BattleManager.Instance.DamageUpdate(guardedDamage, gameObject.tag);
 
