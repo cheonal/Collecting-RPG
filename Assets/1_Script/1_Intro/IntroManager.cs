@@ -1,12 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
+using DG.Tweening;
+using UnityEngine.UI;
+using TMPro;
 public class IntroManager : MonoBehaviour
 {
-    public void LoadScene()
+    [SerializeField] private GameObject GO_OnLoading;
+    [SerializeField] private GameObject GO_EndLoading;
+    private void Start()
     {
-        SceneManager.LoadScene("StageScene");
+        StartCoroutine(OnLoading());
+    }
+    private IEnumerator OnLoading()
+    {
+        GO_OnLoading.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.5f).SetLoops(-1, LoopType.Yoyo);
+        yield return new WaitForSeconds(1.5f);
+        GO_OnLoading.SetActive(false);
+        GO_OnLoading.transform.DOKill();
+
+        GO_EndLoading.SetActive(true);
+        GO_EndLoading.GetComponent<TextMeshProUGUI>().DOFade(0, 1f).SetLoops(-1,LoopType.Yoyo).SetEase(Ease.InOutQuad);        
+    }
+    public void OnClickScreen()
+    {
+        LoadingManager.LoadScene("MainScene");
     }
 }
