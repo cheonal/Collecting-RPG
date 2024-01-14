@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoSingleton<PlayerData>
+public class PlayerData : MonoBehaviour
 {
     /// <summary> 현재 내가 보유중인 캐릭터 </summary>
     public CharaterData[] PlayerCharater;

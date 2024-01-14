@@ -11,8 +11,8 @@ public class StageManager : MonoBehaviour
     /// <summary> 스테이지 버튼을 눌렀을 때 호출, 현재 스테이지 정보 전달 </summary>
     public void SetStage(int value)
     {
-        TeamManager.Instance.CurStage = value;
-        TeamManager.Instance.GetStageManager(this);
+        GameManager.Instance.CurStage = value;
+        GameManager.Instance.teamManager.GetStageManager(this);
     }
     /// <summary> 스테이지 별 몬스터 정보 전달 </summary>
     public StageEnemyData[] GetStageEnemyData()

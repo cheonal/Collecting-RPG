@@ -6,10 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TeamManager : DontDestroyMonoSingleton<TeamManager>
+public class TeamManager : MonoBehaviour
 {
-    [HideInInspector]
-    public int CurStage;
     [HideInInspector]
     public List<CharaterData> CurTeam;
     [HideInInspector]
@@ -35,7 +33,8 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
     {
         SetCharater();
         CheckSynergy();
-        SceneManager.LoadScene("BattleScene");
+        LoadingManager.LoadScene("BattleScene");
+      //  SceneManager.LoadScene("BattleScene");
     }
     /// <summary> 캐릭터 편성창에서 선택한 캐릭터들, 현재 스테이지 적군 몬스터 정보 저장 </summary>
     public void SetCharater()
@@ -47,7 +46,7 @@ public class TeamManager : DontDestroyMonoSingleton<TeamManager>
         {
             CurTeam = _settingTeamManager.GetTeamList();
         }
-        int selectStage = CurStage;
+        int selectStage = GameManager.Instance.CurStage;
 
         for (int i = 0; i < _stageManager.GetStageEnemyData()[selectStage - 1].Enemy.Length; i++)
         {

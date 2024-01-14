@@ -52,8 +52,8 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// <summary> TeamManager의 아군, 적군 정보로 BattleCharater 생성, 정보 할당 </summary>
     public void Setting()
     {
-        _curTeam = TeamManager.Instance.CurTeam;
-        _enemyTeam = TeamManager.Instance.EnemyTeam;
+        _curTeam = GameManager.Instance.teamManager.CurTeam;
+        _enemyTeam = GameManager.Instance.teamManager.EnemyTeam;
         for (int i = 0; i < _curTeam.Count; i++)
         {
             GameObject charater = Instantiate(GO_BattleCharater, TRAN_FrednlyArea[i]);
@@ -121,11 +121,11 @@ public class BattleManager : MonoSingleton<BattleManager>
         if (result == "Win")
         {
             IMG_ResultWin.SetActive(true);
-            if (TeamManager.Instance.CurStage < PlayerPrefs.GetInt("curstage"))
+            if (GameManager.Instance.CurStage < PlayerPrefs.GetInt("curstage"))
                 yield break;
 
-            PlayerPrefs.SetInt("curstage", TeamManager.Instance.CurStage + 1);
-            PlayerPrefs.SetString($"stage{TeamManager.Instance.CurStage}:starscore", $"stage{TeamManager.Instance.CurStage}:3");
+            PlayerPrefs.SetInt("curstage", GameManager.Instance.CurStage + 1);
+            PlayerPrefs.SetString($"stage{GameManager.Instance.CurStage}:starscore", $"stage{GameManager.Instance.CurStage}:3");
         }
     }
 
@@ -162,8 +162,8 @@ public class BattleManager : MonoSingleton<BattleManager>
         }
 
         IMG_Black.SetActive(true);
-        Time.timeScale = 0.5f;
-        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
 
         if (tag == "Freindly")
         {
@@ -185,8 +185,9 @@ public class BattleManager : MonoSingleton<BattleManager>
     /// <summary> 전투 완료 후 돌아가기 버튼 클릭시 </summary>
     public void BattleOut()
     {
-        PlayerData.Instance.ReturnCharaterState();
-        SceneManager.LoadScene("StageScene");
+        LoadingManager.LoadScene("MainScene");
+        //  PlayerData.Instance.ReturnCharaterState();
+   //     SceneManager.LoadScene("StageScene");
     }
 
     /// <summary> 데미지 텍스트 Transform 반환 </summary>

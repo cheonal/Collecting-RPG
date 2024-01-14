@@ -16,10 +16,10 @@ public class SettingTeamManager : MonoBehaviour
 
     private void OnEnable()
     {
-        BTN_StartBattle.onClick.AddListener(() => TeamManager.Instance.GameStart());
+        BTN_StartBattle.onClick.AddListener(() => GameManager.Instance.teamManager.GameStart());
         _icon = new List<GameObject>();
         _frendlyTeamList = new List<CharaterData>();
-        TeamManager.Instance.GetSettingTeamManager(this);
+        GameManager.Instance.teamManager.GetSettingTeamManager(this);
     }
     public List<CharaterData> GetTeamList()
     {
@@ -31,7 +31,7 @@ public class SettingTeamManager : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        CharaterData[] playerData = PlayerData.Instance.PlayerCharater;
+        CharaterData[] playerData = GameManager.Instance.playerData.PlayerCharater;
 
         for (int i = 0; i < playerData.Length; i++)
         {

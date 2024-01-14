@@ -15,7 +15,7 @@ public class PopupManager : MonoBehaviour
     /// <summary> 현재 스테이지에 따라서 ScriptObject에 저장해둔 보상 팝업에 표시 </summary>
     private void OnEnable()
     {
-        int curstage = TeamManager.Instance.CurStage;
+        int curstage = GameManager.Instance.CurStage;
 
         for (int i = 0; i < stageClearResult[curstage-1].Result.Length; i++)
         {

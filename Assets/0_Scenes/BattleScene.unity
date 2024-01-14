@@ -2017,7 +2017,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 059d490d5235ec64183101fb5ff88647, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2243,7 +2243,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ac5cd16ce18352449bf91024fea02da1, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3551,7 +3551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPoolingManager: {fileID: 1811782599}
-  TRAN_TextSpawn: {fileID: 887808357}
   cameraShaker: {fileID: 441051968}
   TXT_Timer: {fileID: 1856189556}
   SLID_FrednlyBar: {fileID: 1435139824}
@@ -3583,14 +3582,11 @@ MonoBehaviour:
   - {fileID: 1465813675}
   - {fileID: 1519778347}
   - {fileID: 1776038521}
+  TRAN_TextSpawn: {fileID: 887808357}
   GO_BattleCharater: {fileID: 8687510009599520175, guid: 655e9a16432d8f543b0dcaaad7373641, type: 3}
+  IMG_DamageText: {fileID: 0}
   IMG_ResultWin: {fileID: 1440554706}
   IMG_ResultLose: {fileID: 1799845810}
-  IMG_DamageText: {fileID: 0}
-  _frendlyTeamHealth: 0
-  _enemyTeamHealth: 0
-  _curfrendlyTeamHealth: 0
-  _curenemyTeamHealth: 0
 --- !u!114 &1811782599
 MonoBehaviour:
   m_ObjectHideFlags: 0
