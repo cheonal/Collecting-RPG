@@ -478,6 +478,9 @@ MonoBehaviour:
   teamManager: {fileID: 0}
   playerData: {fileID: 0}
   CurStage: 0
+  MaxTeamCount: 0
+  TeamTag: Freindly
+  EnemyTag: Enemy
 --- !u!1001 &123659164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5692,6 +5695,7 @@ MonoBehaviour:
   BTN_Charater: {fileID: 6393785434727591611, guid: 6c66e5f597adb91428442dbae79425a9, type: 3}
   TRAN_CharterIcon: {fileID: 1906800948}
   TRAN_SelectedCharaterIcon: {fileID: 718907154}
+  SPT_SelectBackGround: {fileID: 21300000, guid: cbca6ffc89883455d8e7a77770d7e6bc, type: 3}
   _frendlyTeamList: []
 --- !u!1001 &1957290234
 PrefabInstance:

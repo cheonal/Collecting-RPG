@@ -49,11 +49,11 @@ public class BattleCharater : MonoBehaviour
         GameObject[] enemies = null;
         if (thistype == Type.Freindly)
         {
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            enemies = GameObject.FindGameObjectsWithTag(GameManager.Instance.EnemyTag);
         }
         if(thistype == Type.Enemy)
         {
-            enemies = GameObject.FindGameObjectsWithTag("Freindly");
+            enemies = GameObject.FindGameObjectsWithTag(GameManager.Instance.TeamTag);
         }
 
         float shortestDistance = Mathf.Infinity;
@@ -86,12 +86,12 @@ public class BattleCharater : MonoBehaviour
         if(type == 0)
         {
             thistype = Type.Freindly;
-            gameObject.tag = "Freindly";
+            gameObject.tag = GameManager.Instance.TeamTag;
         }
         if (type == 1)
         {
             thistype = Type.Enemy;
-            gameObject.tag = "Enemy";
+            gameObject.tag = GameManager.Instance.EnemyTag;
         }
         charaterData = charater;
         _heroType = charaterData.heroType;
@@ -196,7 +196,9 @@ public class BattleCharater : MonoBehaviour
         // 딜러 캐릭터라면 스킬 데미지만큼 공격
         if (_heroType == HeroType.Dealer)
         {
-            Destroy(Instantiate(_skillEffect, transform.position, transform.rotation), 2f);
+            ParticleSystem Effect = Instantiate(_skillEffect, transform.transform.position, transform.rotation);
+            Destroy(Effect, 2f);
+
             BattleManager.Instance.SkillAction(charaterData, gameObject.tag);
             yield return new WaitForSeconds(0.5f);
             _targetCharater.Damage(_skillDamage);
@@ -208,13 +210,15 @@ public class BattleCharater : MonoBehaviour
             BattleManager.Instance.SkillAction(charaterData, gameObject.tag);
             yield return new WaitForSeconds(0.5f);
 
-            GameObject[] frendly = GameObject.FindGameObjectsWithTag("Freindly");
+            GameObject[] frendly = GameObject.FindGameObjectsWithTag(GameManager.Instance.TeamTag);
             foreach(GameObject freind in frendly)
             {
                 BattleCharater battleCharater = freind.GetComponent<BattleCharater>();
                 battleCharater._health += _skillDamage;
                 battleCharater._attackSpeed *= 1.1f;
-                Destroy(Instantiate(_skillEffect, battleCharater.transform.position, transform.rotation, battleCharater.transform), 2f);
+
+                ParticleSystem Effect = Instantiate(_skillEffect, battleCharater.transform.position, transform.rotation, battleCharater.transform);
+                Destroy(Effect, 2f);
             }
         }
     }

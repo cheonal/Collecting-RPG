@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageManager : MonoBehaviour
+public class StageManager : MonoSingleton<StageManager>
 {
     [SerializeField] private StageButton[] _curMap; // 스테이지 버튼
     [SerializeField] private StageEnemyData[] _stageEnemies; // 각 스테이지별 몬스터정보
@@ -19,7 +19,15 @@ public class StageManager : MonoBehaviour
     {
         return _stageEnemies;
     }
-
+    public string GetStarKey(int stage)
+    {
+        return PlayerPrefs.GetString($"stage{stage}:starscore", $"stage{stage}:3");
+    }
+    public bool SetStartKey(int stage)
+    {
+        PlayerPrefs.SetString($"stage{stage}:starscore", $"stage{stage}:3");
+        return false;
+    }
     private void OnEnable()
     {
         for (int i = 0; i < _curMap.Length; i++)
@@ -30,7 +38,7 @@ public class StageManager : MonoBehaviour
         int curstage = PlayerPrefs.GetInt("curstage", 1);
         for (int i = 0; i < curstage-1; i++)
         {
-            _curMap[i].CheckClear();
+            _curMap[i].ActiveButton();
         }
         _curMap[curstage-1].NowStage();
     }

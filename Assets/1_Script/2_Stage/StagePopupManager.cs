@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopupManager : MonoBehaviour
+public class StagePopupManager : MonoBehaviour
 {
     [SerializeField] private SettingTeamManager settingTeamManager;
     [SerializeField] private GameObject[] GO_Star;

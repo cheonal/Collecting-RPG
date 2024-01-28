@@ -10,16 +10,18 @@ public class SettingTeamManager : MonoBehaviour
     [SerializeField] private Button BTN_Charater;
     [SerializeField] private Transform TRAN_CharterIcon;
     [SerializeField] private Transform TRAN_SelectedCharaterIcon;
+    [SerializeField] private Sprite SPT_SelectBackGround;
+    private enum CharacterIconSetting { BackGround, CharacterImg, FirstSynergy, SecondSynergy, Level }
     public List<CharaterData> _frendlyTeamList;
     private List<GameObject> _icon;
-
-
+    private int _maxTeamCount = 3;
     private void OnEnable()
     {
         BTN_StartBattle.onClick.AddListener(() => GameManager.Instance.teamManager.GameStart());
         _icon = new List<GameObject>();
         _frendlyTeamList = new List<CharaterData>();
         GameManager.Instance.teamManager.GetSettingTeamManager(this);
+        GameManager.Instance.MaxTeamCount = _maxTeamCount;
     }
     public List<CharaterData> GetTeamList()
     {
@@ -37,11 +39,10 @@ public class SettingTeamManager : MonoBehaviour
         {
             Button charatericon = Instantiate(BTN_Charater, TRAN_CharterIcon);
             _icon.Add(charatericon.gameObject);
-
-            Transform charaterTexture = charatericon.transform.GetChild(1);
-            Transform charaterFirstSynergy = charatericon.transform.GetChild(2);
-            Transform charaterSecondSynergy = charatericon.transform.GetChild(3);
-            Transform charaterLevel = charatericon.transform.GetChild(4);
+            Transform charaterTexture = charatericon.transform.GetChild((int)CharacterIconSetting.CharacterImg);
+            Transform charaterFirstSynergy = charatericon.transform.GetChild((int)CharacterIconSetting.FirstSynergy);
+            Transform charaterSecondSynergy = charatericon.transform.GetChild((int)CharacterIconSetting.SecondSynergy);
+            Transform charaterLevel = charatericon.transform.GetChild((int)CharacterIconSetting.Level);
 
             Image charaterIconTexure = charaterTexture.GetComponent<Image>();
             Image charaterIconFirstSynergy = charaterFirstSynergy.GetComponent<Image>();
@@ -60,11 +61,15 @@ public class SettingTeamManager : MonoBehaviour
     /// <summary> 캐릭터 아이콘 클릭시 호출, 편성창에 표시 </summary>
     public void SetTeam(CharaterData charaterData)
     {
-        if (_frendlyTeamList.Count > 2)
+        if (_frendlyTeamList.Count >= GameManager.Instance.MaxTeamCount)
+            return;
+
+        if (_frendlyTeamList.Contains(charaterData))
             return;
 
         BTN_StartBattle.gameObject.SetActive(true);
         Instantiate(_icon[charaterData.id], TRAN_SelectedCharaterIcon);
+
         _frendlyTeamList.Add(charaterData);
     }
 }

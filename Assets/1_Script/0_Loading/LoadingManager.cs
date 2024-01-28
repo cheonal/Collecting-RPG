@@ -10,6 +10,8 @@ public class LoadingManager : MonoBehaviour
 
     [SerializeField] private Image IMG_ProgressBar;
     [SerializeField] private GameObject[] TXT_Text;
+
+    [SerializeField] private float TextMoveScale = -230f;
     public static void LoadScene(string sceneName)
     {
         NextScene = sceneName;
@@ -25,7 +27,7 @@ public class LoadingManager : MonoBehaviour
     {
         for (int i = 0; i < TXT_Text.Length; i++)
         {
-            TXT_Text[i].transform.DOLocalMoveY(-230, 0.5f).SetLoops(-1, LoopType.Yoyo);
+            TXT_Text[i].transform.DOLocalMoveY(TextMoveScale, 0.5f).SetLoops(-1, LoopType.Yoyo);
             yield return new WaitForSeconds(0.1f);
         }
     }

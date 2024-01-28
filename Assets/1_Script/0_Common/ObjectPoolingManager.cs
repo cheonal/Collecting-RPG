@@ -7,6 +7,7 @@ public class ObjectPoolingManager : MonoBehaviour
     [SerializeField] GameObject[] GO_Prefab;
     List<GameObject>[] pools;
 
+    [SerializeField] private int TextObjectCount = 20;
     void Awake()
     {
         pools = new List<GameObject>[GO_Prefab.Length];
@@ -14,7 +15,7 @@ public class ObjectPoolingManager : MonoBehaviour
         {
             pools[i] = new List<GameObject>();
         }
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < TextObjectCount; i++)
         {
             Get(0);
         }

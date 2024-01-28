@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class BattleManager : MonoSingleton<BattleManager>
+public class BattleManager : MonoSingleton<BattleManager> 
 {
     [Header("=====Manager=====")]
     public ObjectPoolingManager objectPoolingManager;
@@ -124,19 +124,19 @@ public class BattleManager : MonoSingleton<BattleManager>
             if (GameManager.Instance.CurStage < PlayerPrefs.GetInt("curstage"))
                 yield break;
 
+            StageManager.Instance.SetStartKey(GameManager.Instance.CurStage);
             PlayerPrefs.SetInt("curstage", GameManager.Instance.CurStage + 1);
-            PlayerPrefs.SetString($"stage{GameManager.Instance.CurStage}:starscore", $"stage{GameManager.Instance.CurStage}:3");
         }
     }
 
     /// <summary> 아군, 적군 데미지 값에 따라 팀 체력바 업데이트 </summary>
     public void DamageUpdate(float Damage, string tag)
     {
-        if (tag == "Freindly")
+        if (tag == GameManager.Instance.TeamTag)
         {
             _curfrendlyTeamHealth -= Damage;
         }
-        if (tag == "Enemy")
+        if (tag == GameManager.Instance.EnemyTag)
         {
             _curenemyTeamHealth -= Damage;
         }
@@ -148,13 +148,13 @@ public class BattleManager : MonoSingleton<BattleManager>
     }
     public IEnumerator SkillActionCoruntine(CharaterData charaterData, string tag)
     {
-        if(tag == "Freindly")
+        if(tag == GameManager.Instance.TeamTag)
         {
             IMG_FrendlySkill.SetActive(true);
             IMG_FrednlyCharaterTexutre.sprite = charaterData.Icon;
             TXT_FrendlyText.text = charaterData.SkillName;
         }
-        if(tag == "Enemy")
+        if(tag == GameManager.Instance.EnemyTag)
         {
             IMG_EnemySkill.SetActive(true);
             IMG_EnemyCharaterTexutre.sprite = charaterData.Icon;
@@ -165,11 +165,11 @@ public class BattleManager : MonoSingleton<BattleManager>
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(1f);
 
-        if (tag == "Freindly")
+        if (tag == GameManager.Instance.TeamTag)
         {
             IMG_FrendlySkill.SetActive(false);
         }
-        if (tag == "Enemy")
+        if (tag == GameManager.Instance.EnemyTag)
         {
             IMG_EnemySkill.SetActive(false);
         }
@@ -186,8 +186,6 @@ public class BattleManager : MonoSingleton<BattleManager>
     public void BattleOut()
     {
         LoadingManager.LoadScene("MainScene");
-        //  PlayerData.Instance.ReturnCharaterState();
-   //     SceneManager.LoadScene("StageScene");
     }
 
     /// <summary> 데미지 텍스트 Transform 반환 </summary>
