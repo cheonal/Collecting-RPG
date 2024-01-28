@@ -212,298 +212,54 @@ public class TeamManager : MonoBehaviour
     }
     private bool WarriorSynergy(int value)
     {
-        switch (value)
+        foreach (CharaterData charater in CurTeam)
         {
-            case 0:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Warrior))
-                    {
-                        charater.SkillCollDown -= 1f;
-                    }
-                }
-                break;
-            case 1:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Warrior))
-                    {
-                        charater.SkillCollDown -= 2f;
-                    }
-                }
-                break;
-            case 2:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Warrior))
-                    {
-                        charater.SkillCollDown -= 3f;
-                    }
-                }
-                break;
-            case 3:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Warrior))
-                    {
-                        charater.SkillCollDown -= 4f;
-                    }
-                }
-                break;
-            case 4:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Warrior))
-                    {
-                        charater.SkillCollDown -= 5f;
-                    }
-                }
-                break;
-            case 5:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Warrior))
-                    {
-                        charater.SkillCollDown -= 6f;
-                    }
-                }
-                break;
-            default:
-                return true;
+            if (charater.characteristic.Contains(Synergy.Warrior))
+            {
+                charater.SkillCollDown -= value + 1f;
+            }
         }
         return false;
     }
     private bool WizardSynergy(int value)
     {
-        switch (value)
+        foreach (CharaterData charater in CurTeam)
         {
-            case 0:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Wizard))
-                    {
-                        charater.SkillCollDownSpeed *= 1.25f;
-                    }
-                }
-                break;
-            case 1:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Wizard))
-                    {
-                        charater.SkillCollDownSpeed *= 1.35f;
-                    }
-                }
-                break;
-            case 2:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Wizard))
-                    {
-                        charater.SkillCollDownSpeed *= 1.45f;
-                    }
-                }
-                break;
-            case 3:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Wizard))
-                    {
-                        charater.SkillCollDownSpeed *= 1.55f;
-                    }
-                }
-                break;
-            case 4:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Wizard))
-                    {
-                        charater.SkillCollDownSpeed *= 1.65f;
-                    }
-                }
-                break;
-            case 5:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Wizard))
-                    {
-                        charater.SkillCollDownSpeed *= 1.85f;
-                    }
-                }
-                break;
-            default:
-                return true;
+            if (charater.characteristic.Contains(Synergy.Wizard))
+            {
+                charater.SkillCollDownSpeed *= 1.25f + value * 0.1f;
+            }
         }
+     
         return false;
     }
     private bool HolySynergy(int value)
     {
-        switch (value)
+        foreach (CharaterData charater in CurTeam)
         {
-            case 0:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    charater.Damage *= 1.2f;
-                }
-                break;
-            case 1:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    charater.Damage *= 1.3f;
-                }
-                break;
-            case 2:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    charater.Damage *= 1.4f;
-                }
-                break;
-            case 3:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    charater.Damage *= 1.6f;
-                }
-                break;
-            case 4:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    charater.Damage *= 1.75f;
-                }
-                break;
-            case 5:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    charater.Damage *= 1.85f;
-                }
-                break;
-            default:
-                return true;
+            charater.Damage *= 1.2f + value * 0.1f;
         }
         return false;
     }
     private bool FireSynergy(int value)
     {
-        switch (value)
+        foreach (CharaterData charater in CurTeam)
         {
-            case 0:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Fire))
-                    {
-                        charater.Damage *= 1.25f;
-                    }
-                }
-                break;
-            case 1:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Fire))
-                    {
-                        charater.Damage *= 1.4f;
-                    }
-                }
-                break;
-            case 2:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Fire))
-                    {
-                        charater.Damage *= 1.6f;
-                    }
-                }
-                break;
-            case 3:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Fire))
-                    {
-                        charater.Damage *= 2f;
-                    }
-                }
-                break;
-            case 4:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Fire))
-                    {
-                        charater.Damage *= 2.5f;
-                    }
-                }
-                break;
-            case 5:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Fire))
-                    {
-                        charater.Damage *= 3f;
-                    }
-                }
-                break;
-            default:
-                return true;
+            if (charater.characteristic.Contains(Synergy.Fire))
+            {
+                charater.Damage *= 1.2f + value * 0.2f;
+            }
         }
         return false;
     }
     private bool EarthSynergy(int value) 
     {
-        switch (value)
+        foreach (CharaterData charater in CurTeam)
         {
-            case 0:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Earth))
-                    {
-                        charater.Armor *= 1.7f;
-                    }
-                }
-                break;
-            case 1:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Earth))
-                    {
-                        charater.Armor *= 1.8f;
-                    }
-                }
-                break;
-            case 2:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Earth))
-                    {
-                        charater.Armor *= 2.1f;
-                    }
-                }
-                break;
-            case 3:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Earth))
-                    {
-                        charater.Armor *= 2.5f;
-                    }
-                }
-                break;
-            case 4:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Earth))
-                    {
-                        charater.Armor *= 3.0f;
-                    }
-                }
-                break;
-            case 5:
-                foreach (CharaterData charater in CurTeam)
-                {
-                    if (charater.characteristic.Contains(Synergy.Earth))
-                    {
-                        charater.Armor *= 3.5f;
-                    }
-                }
-                break;
-            default:
-                return true;
+            if (charater.characteristic.Contains(Synergy.Earth))
+            {
+                charater.Armor *= 1.7f + value * 0.2f;
+            }
         }
         return false;
     }

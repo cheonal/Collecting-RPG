@@ -21,6 +21,7 @@ public class SettingTeamManager : MonoBehaviour
         _icon = new List<GameObject>();
         _frendlyTeamList = new List<CharaterData>();
         GameManager.Instance.teamManager.GetSettingTeamManager(this);
+        GameManager.Instance.playerData.ReturnCharaterState();
         GameManager.Instance.MaxTeamCount = _maxTeamCount;
     }
     public List<CharaterData> GetTeamList()
